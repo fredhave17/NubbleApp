@@ -1,9 +1,9 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Text} from './src/components/Text/Text';
-import {Button} from './src/components/Button/Button';
 import {ThemeProvider} from '@shopify/restyle';
 import {theme} from './src/theme/theme';
+import {Icon} from './src/components/Icon/Icon';
 
 function App(): JSX.Element {
   return (
@@ -12,14 +12,7 @@ function App(): JSX.Element {
         <View style={{paddingHorizontal: 24}}>
           <Text variant="headingLarge">Test Text</Text>
 
-          <Button title={'Entrar'} marginBottom="s12" />
-          <Button
-            title={'Entrar'}
-            marginBottom="s12"
-            variant="outline"
-            disabled
-          />
-          <Button title={'Entrar'} loading />
+          <Icon color="backgroundContrast" name={'heartFill'} />
         </View>
       </SafeAreaView>
     </ThemeProvider>
