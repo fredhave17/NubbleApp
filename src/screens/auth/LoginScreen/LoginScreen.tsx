@@ -2,7 +2,7 @@ import React from 'react';
 import {TextInput} from '../../../components/TextInput/TextInput';
 import {Text} from '../../../components/Text/Text';
 import {Button} from '../../../components/Button/Button';
-import {SafeAreaView, View} from 'react-native';
+import {View} from 'react-native';
 import {Icon} from '../../../components/Icon/Icon';
 import {Screen} from '../../../components/Screen/Screen';
 
