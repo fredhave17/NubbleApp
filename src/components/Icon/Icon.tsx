@@ -28,6 +28,7 @@ import {CommentIcon} from '../../assets/icons/CommentIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
+import {Pressable} from 'react-native';
 
 export interface IconBase {
   size?: number;
@@ -38,11 +39,25 @@ interface Props {
   name: iconName;
   color?: ThemeColors;
   size?: number;
+  onPress?: () => {};
 }
 
-export function Icon({name, color = 'backgroundContrast', size = 20}: Props) {
+export function Icon({
+  name,
+  color = 'backgroundContrast',
+  size = 20,
+  onPress,
+}: Props) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistery[name];
+
+  if (onPress) {
+    return (
+      <Pressable onPress={onPress} hitSlop={10}>
+        <SVGIcon color={colors[color]} size={size} />
+      </Pressable>
+    );
+  }
 
   return <SVGIcon color={colors[color]} size={size} />;
 }
