@@ -4,12 +4,19 @@ import {Text} from '../../../components/Text/Text';
 import {Button} from '../../../components/Button/Button';
 import {View} from 'react-native';
 import {Icon} from '../../../components/Icon/Icon';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Screen} from '../../../components/Screen/Screen';
+import {RootStackParamList} from '../../../routes/routes';
 
-export function LoginScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
+
+export function LoginScreen({navigation}: ScreenProps) {
+  function navigateSignUpScreen() {
+    navigation.navigate('SignUpScreen');
+  }
   return (
     <Screen>
-      <View style={{paddingHorizontal: 24}}>
+      <View>
         <Text variant="headingLarge" marginBottom="s8">
           Ola
         </Text>
@@ -34,7 +41,11 @@ export function LoginScreen() {
           Esqueci minha senha
         </Text>
         <Button title="Entrar" style={{marginBottom: 12}} />
-        <Button variant="outline" title="Criar uma conta" />
+        <Button
+          variant="outline"
+          title="Criar uma conta"
+          onPress={navigateSignUpScreen}
+        />
       </View>
     </Screen>
   );
