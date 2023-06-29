@@ -14,6 +14,9 @@ export function LoginScreen({navigation}: ScreenProps) {
   function navigateSignUpScreen() {
     navigation.navigate('SignUpScreen');
   }
+  function navigateForgotPasswordScreen() {
+    navigation.navigate('ForgotPasswordScreen');
+  }
   return (
     <Screen>
       <View>
@@ -37,7 +40,12 @@ export function LoginScreen({navigation}: ScreenProps) {
           RightComponent={<Icon name="eyeOn" color="gray2" />}
         />
 
-        <Text variant="paragraphSmall" bold color="primary" marginBottom="s40">
+        <Text
+          variant="paragraphSmall"
+          bold
+          color="primary"
+          marginBottom="s40"
+          onPress={navigateForgotPasswordScreen}>
           Esqueci minha senha
         </Text>
         <Button title="Entrar" style={{marginBottom: 12}} />
