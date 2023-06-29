@@ -47,7 +47,7 @@ export interface IconProps {
 export function Icon({
   name,
   color = 'backgroundContrast',
-  size = 20,
+  size,
   onPress,
 }: IconProps) {
   const {colors} = useAppTheme();
