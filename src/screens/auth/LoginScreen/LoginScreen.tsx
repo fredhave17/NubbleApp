@@ -13,10 +13,9 @@ import {FormTextInput} from '../../../components/Form/FormTextInput';
 import {SingUpSchema, loginSreenSchema} from './loginScreenSchema';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {FormPasswordInput} from '../../../components/Form/FormTextPasswordInput';
+import {AuthScreenProps} from '../../../routes/navigationType';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
-
-export function LoginScreen({navigation}: ScreenProps) {
+export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
   function navigateSignUpScreen() {
     navigation.navigate('SignUpScreen');
   }
