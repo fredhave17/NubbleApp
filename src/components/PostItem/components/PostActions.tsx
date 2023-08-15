@@ -1,5 +1,5 @@
 import React from 'react';
-import {Post} from '../../../domain/Post/types';
+import {Post} from '../../../domain/Post/postTypes';
 import {Box, TouchableOpacityBox} from '../../Box/Box';
 import {Icon, IconProps} from '../../Icon/Icon';
 import {Text} from '../../Text/Text';
