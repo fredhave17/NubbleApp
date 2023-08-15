@@ -1,9 +1,15 @@
+import {api} from '../../api/apiConfig';
+import {MetaDataPageAPI, PageAPI} from '../../api/apiTypes';
 import {postListMock} from './postListMock';
-import {Post} from './types';
+import {PageParams, Post, PostApi} from './postTypes';
 
-async function getList(): Promise<Post[]> {
-  await new Promise(resolve => setTimeout(() => resolve(''), 1000));
-  return postListMock;
+async function getList(params?: PageParams): Promise<PageAPI<PostApi>> {
+  await new Promise(resolve => setTimeout(() => resolve(''), 2000));
+
+  const response = await api.get<PageAPI<PostApi>>('user/post', {
+    params,
+  });
+  return response.data;
 }
 
 export const postApi = {

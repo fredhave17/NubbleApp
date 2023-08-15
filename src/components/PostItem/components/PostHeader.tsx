@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image} from 'react-native';
-import {Post} from '../../../domain/Post/types';
+import {Post} from '../../../domain/Post/postTypes';
 import {Box} from '../../Box/Box';
 import {Text} from '../../Text/Text';
 
