@@ -15,19 +15,20 @@ import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
 import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
 import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
-import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
+// import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
 import {HeartIcon} from '../../assets/icons/HeartIcon';
-import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
+// import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
 import {HomeIcon} from '../../assets/icons/HomeIcon';
 import {MessageIcon} from '../../assets/icons/MessageIcon';
 import {NewPostIcon} from '../../assets/icons/NewPostIcon';
-import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
+// import {ProfileFillIcon} from '../../assets/icons/ProfileFillIcon';
 import {ProfileIcon} from '../../assets/icons/ProfileIcon';
 import {SearchIcon} from '../../assets/icons/SearchIcon';
 import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 import {TrashIcon} from '../../assets/icons/TrashIcon';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {ThemeColors} from '../../theme/theme';
+import {Pressable} from 'react-native';
 
 export interface IconBase {
   size?: number;
@@ -38,10 +39,24 @@ interface Props {
   name: IconName;
   color?: ThemeColors;
   size?: number;
+  onPress?: () => void;
 }
-export function Icon({name, color = 'backgroundContrast', size}: Props) {
+export function Icon({
+  name,
+  color = 'backgroundContrast',
+  size,
+  onPress,
+}: Props) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
+
+  if (onPress) {
+    return (
+      <Pressable hitSlop={10} onPress={onPress}>
+        <SVGIcon color={colors[color]} size={size} />
+      </Pressable>
+    );
+  }
 
   return <SVGIcon color={colors[color]} size={size} />;
 }
@@ -64,13 +79,13 @@ const iconRegistry = {
   flashOn: FlashOnIcon,
   flashOff: FlashOffIcon,
   heart: HeartIcon,
-  heartFill: HeartFillIcon,
+  // heartFill: HeartFillIcon,
   home: HomeIcon,
-  homeFill: HomeFillIcon,
+  // homeFill: HomeFillIcon,
   message: MessageIcon,
   newPost: NewPostIcon,
   profile: ProfileIcon,
-  profileFill: ProfileFillIcon,
+  // profileFill: ProfileFillIcon,
   search: SearchIcon,
   settings: SettingsIcon,
   trash: TrashIcon,
