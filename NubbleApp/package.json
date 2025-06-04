@@ -4,14 +4,29 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 16'",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write .",
+    "bezetacil": "rm -rf node_modules/ && yarn cache clean && yarn install && cd ios && pod deintegrate && arch -x86_64 pod install && cd .."
   },
   "dependencies": {
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-native": "^5.0.0",
     "react": "19.0.0",
     "react-native": "0.79.2"
+  },
+  "prettier": {
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "always"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -29,7 +44,7 @@
     "@types/react-test-renderer": "^19.0.0",
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
-    "prettier": "2.8.8",
+    "prettier": "^3.5.3",
     "react-test-renderer": "19.0.0",
     "typescript": "5.0.4"
   },
